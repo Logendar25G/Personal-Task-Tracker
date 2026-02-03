@@ -11,7 +11,15 @@ A simple Personal Task Tracker CLI application built using TypeScript. It allows
 6. Display the tasks in Tabular format
 
 
-# Tech Stacks
+# Tech Stacks & Dependencies
 
-1. TypeScript
-2. Node.js
+1. TypeScript - for basic coding
+2. Node.js - to execute the console application
+3. Prompt-sync - to get input from the user
+
+# Installation
+
+1. Install dependencies - npm install
+2. Run the Application - tsx src/Task_Manager.ts
+
+
