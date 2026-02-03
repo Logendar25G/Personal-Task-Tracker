@@ -26,4 +26,4 @@ type Data={
     pending:String
 }
 
-export {Status,Priority,Task,tResult};
+export {Status,Priority,Task,tResult,Data};
