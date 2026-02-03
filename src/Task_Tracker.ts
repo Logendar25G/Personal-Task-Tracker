@@ -1,10 +1,14 @@
 import { Status,Priority,Task,Data,tResult} from "./task_Initialization";
 
 
+/*class to manage the features like add tasks,view all tasks,delete tasks , 
+ update tasks and display tasks */
 export class Task_Tracker{
-    tasks_map=new Map<number,Task>();
-    taskId:number=0;
+    tasks_map=new Map<number,Task>();//map to store the tasks
+    taskId:number=0; //Auto-increment ID for tasks
 
+
+    // Method to add a tasks
     addTask(title:string,desc:string,priority:Priority):Task{
         const id = ++this.taskId;
         const task:Task={
@@ -18,6 +22,7 @@ export class Task_Tracker{
         return task;
     }
 
+    //Return all the Tasks in the memory as an array
     viewAllTask():Task[]{
         const result:Task[]=[];
         this.tasks_map.forEach((val)=>{
@@ -27,6 +32,7 @@ export class Task_Tracker{
         return result;
     }
 
+    //Delete the tasks using the Task ID
     deleteTask(id:number):tResult{
         if(this.tasks_map.has(id)){
             const dTask=this.tasks_map.get(id);
@@ -38,6 +44,7 @@ export class Task_Tracker{
         }
     }
 
+    //Update the status of the Task using ID 
     updateTask(id:number,newStatus:Status):tResult{
         const uTask=this.tasks_map.get(id);
         
@@ -47,6 +54,7 @@ export class Task_Tracker{
         return {success:true,task:uTask};
     }
 
+    //Filter the tasks by status
     filterByStatus(f_status:Status):Task[]{
         const result:Task[] =[...this.tasks_map.values()].filter((val)=>{
             return (val.status===f_status);
@@ -54,6 +62,7 @@ export class Task_Tracker{
         return result;
     }
 
+    //Filter the tasks by priority
     filterByPriority(f_priority:Priority):Task[]{
         const result:Task[] =[...this.tasks_map.values()].filter((val)=>{
             return (val.priority===f_priority);
@@ -61,6 +70,7 @@ export class Task_Tracker{
         return result;
     }
 
+    //Display the tasks in the tabular format
     displayTask(task:Task[]):void{
         console.log("The Tasks are:");
    
@@ -75,6 +85,7 @@ export class Task_Tracker{
         )
     }
 
+    //summary of status of the overall Tasks
     getProgressReport(task:Task[]):void{
         const total:number=task.length;
         const completed:number=task.filter((val)=>{
@@ -118,6 +129,8 @@ export class Task_Tracker{
 
         console.log("\nCompleted: " + cTask.length + ", Pending: " + pTask.length);
     }*/
+
+    // Dispaly the completed and pending tasks id and titile in table format
     displayCompletedVsPending(cTask:Task[],pTask:Task[]):void{
         const maxLen=Math.max(cTask.length,pTask.length);
 
